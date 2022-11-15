@@ -1,4 +1,5 @@
-﻿using System;
+//Варіант 5.
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,17 +11,6 @@ namespace Lab2
     {
         static void Main(string[] args)
         {
-
-            //Варіант 5. Розробити підсистему для генерування об'єкту,
-            //що зберігає структуру HTML сторінки з лентою подій
-            //(Дата події, заголовок, опис, ulr зображення).
-            //Сторінка може містити гедер (header), в якому вказати
-            //визначений текст користувачем, основну частину із декількох подій
-            //(кожна подія оформити як окремий блок) , блок із анонсом події
-            //(список заголовків подій) та футер (footer), де розміщено контакти
-            //авторів, що виконали лабораторну роботу. Передбачити можливість генерування
-            //повної версії сторінки з усіма елементами, сторінки без блоку анонсу, та сторінки
-            //без гедера та футера (тільки анонс та список подій).
             IBuilder builder = new Builder();
             HtmlPart htmlpart = builder
                                 .SetName("Actions")
@@ -86,7 +76,7 @@ namespace Lab2
         public IBuilder SetName(string name)
         {
             this.product.Name = name;
-            return this; //для можливості побудови ланцюга виклику методів
+            return this;
 
         }
 
@@ -162,7 +152,7 @@ namespace Lab2
             this.builder.Reset();
             return this.builder
                     .SetName("Footer")
-                    .AddAction("nechai.leonid@student.uzhnu.edu.ua")
+                    .AddAction("Copyright 2022, UZNHU")
                     .GetHtmlPart();
         }
     }
